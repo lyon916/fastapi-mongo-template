@@ -1,17 +1,35 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI
+from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException
+from starlette.middleware.cors import CORSMiddleware
 
-from auth.jwt_bearer import JWTBearer
-from routes.student import router as StudentRouter
-from routes.admin import router as AdminRouter
-
-app = FastAPI()
-
-token_listener = JWTBearer()
-
-@app.get("/", tags=["Root"])
-async def read_root():
-    return {"message": "Welcome to this fantastic app."}
+from core.errors.http_error import http_error_handler
+from core.errors.validation_error import http422_error_handler
+from core.config import ALLOWED_HOSTS, API_PREFIX, DEBUG, PROJECT_NAME, VERSION
+from core.events import create_start_app_handler, create_stop_app_handler
+from routes.router import router as api_router
 
 
-app.include_router(AdminRouter, tags=["Administrator"], prefix="/admin")
-app.include_router(StudentRouter, tags=["Students"], prefix="/student", dependencies=[Depends(token_listener)])
+def get_application() -> FastAPI:
+    application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
+
+    application.add_middleware(
+        CORSMiddleware,
+        allow_origins=ALLOWED_HOSTS or ["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    application.add_event_handler("startup", create_start_app_handler(application))
+    application.add_event_handler("shutdown", create_stop_app_handler(application))
+
+    application.add_exception_handler(HTTPException, http_error_handler)
+    application.add_exception_handler(RequestValidationError, http422_error_handler)
+
+    application.include_router(api_router, prefix=API_PREFIX)
+
+    return application
+
+
+app = get_application()
