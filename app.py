@@ -5,13 +5,18 @@ from starlette.middleware.cors import CORSMiddleware
 
 from core.errors.http_error import http_error_handler
 from core.errors.validation_error import http422_error_handler
-from core.config import ALLOWED_HOSTS, API_PREFIX, DEBUG, PROJECT_NAME, VERSION
+from core.config import ALLOWED_HOSTS, API_PREFIX, DEBUG, PROJECT_NAME, VERSION, DESCRIPTION
 from core.events import create_start_app_handler, create_stop_app_handler
 from routes.router import router as api_router
 
 
 def get_application() -> FastAPI:
-    application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
+    application = FastAPI(
+        title=PROJECT_NAME, 
+        description=DESCRIPTION,
+        debug=DEBUG, 
+        version=VERSION
+    )
 
     application.add_middleware(
         CORSMiddleware,

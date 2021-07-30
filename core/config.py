@@ -23,7 +23,7 @@ MAX_CONNECTIONS_COUNT: int = config("MAX_CONNECTIONS_COUNT", cast=int, default=1
 MIN_CONNECTIONS_COUNT: int = config("MIN_CONNECTIONS_COUNT", cast=int, default=10)
 
 SECRET_KEY: Secret = config("SECRET_KEY", cast=Secret)
-
+DESCRIPTION: str = config("DESCRIPTION", default="a FastAPI example application")
 PROJECT_NAME: str = config("PROJECT_NAME", default="FastAPI example application")
 ALLOWED_HOSTS: List[str] = config(
     "ALLOWED_HOSTS",
@@ -32,6 +32,8 @@ ALLOWED_HOSTS: List[str] = config(
 )
 
 # logging configuration
+
+REDIS_POOL = "redis://@127.0.0.1:6379/0?encoding=utf-8"
 
 LOGGING_LEVEL = logging.DEBUG if DEBUG else logging.INFO
 LOGGERS = ("uvicorn.asgi", "uvicorn.access")

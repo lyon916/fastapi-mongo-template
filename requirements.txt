@@ -8,3 +8,6 @@ fastapi
 pydantic[email]
 passlib
 loguru
+aioredis
+hiredis
+fastapi-cache2
