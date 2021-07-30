@@ -4,8 +4,8 @@ from fastapi.security import HTTPBasicCredentials
 from passlib.context import CryptContext
 
 from database.database import admin_collection, retrieve_admins
-from core.auth.jwt_handler import signJWT
-from core.auth.jwt_bearer import JWTBearer
+from api.auth.jwt_handler import signJWT
+from api.auth.jwt_bearer import JWTBearer
 from database.database import add_admin
 from models.admin import AdminModel
 from models.student import ResponseModel

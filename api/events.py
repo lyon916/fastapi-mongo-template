@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from loguru import logger
 import aioredis
 from starlette.requests import Request
-from core.config import REDIS_URL
+from api.config import REDIS_URL
 
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
@@ -30,7 +30,7 @@ async def get_redis_pool():
     return redis
 
 async def release_redis(app: FastAPI):
-    await app.state.redis.close()
+    app.state.redis.close()
     await app.state.redis.wait_closed()
     return
 

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from core.auth.jwt_bearer import JWTBearer
+from api.auth.jwt_bearer import JWTBearer
 from routes.admin import router as AdminRouter
 from routes.student import router as StudentRouter
 from routes.index import router as IndexRouter

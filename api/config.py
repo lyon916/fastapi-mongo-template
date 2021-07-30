@@ -7,7 +7,7 @@ from loguru import logger
 from starlette.config import Config
 from starlette.datastructures import CommaSeparatedStrings, Secret
 
-from core.logging import InterceptHandler
+from api.logging import InterceptHandler
 
 API_PREFIX = ""
 
