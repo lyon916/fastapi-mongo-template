@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "f1bfe2ca-a137-43cb-aa38-73d9f53f2c89",
+		"name": "fast-mongo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "admin login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDA1NGNjMDBiNGQ5N2M2NjdkZmU1MWUiLCJyZWFsTmFtZSI6Iui2hee6p-euoeeQhuWRmCIsIm1vYmlsZSI6IjEzMjI4NzcwOTk3IiwiZW1haWwiOiJiZGdfYWRtaW5AY2FzdGltLmNuIiwicm9sZXMiOltdLCJncm91cHMiOltdLCJpc0xlYWRlciI6ZmFsc2UsImJlbG9uZ01lbWJlcnMiOltdLCJsZWFkZXJNZW1iZXJzIjpbXSwiaWF0IjoxNjI3NDM0NDMwLCJleHAiOjE2MjgwMzkyMzB9.mRU_K_w14YT8Leqq9X_3pdt8ZtU3N9dPUWGP1FtiTGw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"lyon@gmail.com\",\r\n  \"password\": \"xiaoyi916\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://172.10.10.47:49163/admin/login",
+							"protocol": "http",
+							"host": [
+								"172",
+								"10",
+								"10",
+								"47"
+							],
+							"port": "49163",
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullname\": \"lyon\",\r\n  \"email\": \"lyon@gmail.com\",\r\n  \"password\": \"xiaoyi916\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://172.10.10.47:49163/admin/",
+							"protocol": "http",
+							"host": [
+								"172",
+								"10",
+								"10",
+								"47"
+							],
+							"port": "49163",
+							"path": [
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get admins",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibHlvbkBnbWFpbC5jb20iLCJleHBpcmVzIjoxNjI4MDQwMTcxLjU0NTQ2OTN9.Tc2jgNklZvyAW1n_JP4L2HPuXewwR7YDznClfxq-wqY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullname\": \"lyon\",\r\n  \"email\": \"lyon@gmail.com\",\r\n  \"password\": \"xiaoyi916\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://172.10.10.47:49163/admin/",
+							"protocol": "http",
+							"host": [
+								"172",
+								"10",
+								"10",
+								"47"
+							],
+							"port": "49163",
+							"path": [
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "add student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibHlvbkBnbWFpbC5jb20iLCJleHBpcmVzIjoxNjI3OTgzNTc0Ljc5MDA0NH0.zFB-KSFy59om_If10PtybppQ1JotgylYmS2C8q-HTYo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullname\": \"Abdulazeez Abdulazeez Adeshina\",\r\n  \"email\": \"abdulazeez@x.edu.ng\",\r\n  \"course_of_study\": \"Water resources engineering\",\r\n  \"year\": 2,\r\n  \"gpa\": \"3.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://172.10.10.47:49163/student",
+							"protocol": "http",
+							"host": [
+								"172",
+								"10",
+								"10",
+								"47"
+							],
+							"port": "49163",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get students",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibHlvbkBnbWFpbC5jb20iLCJleHBpcmVzIjoxNjI4MDQwMTcxLjU0NTQ2OTN9.Tc2jgNklZvyAW1n_JP4L2HPuXewwR7YDznClfxq-wqY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://172.10.10.47:49163/student",
+							"protocol": "http",
+							"host": [
+								"172",
+								"10",
+								"10",
+								"47"
+							],
+							"port": "49163",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibHlvbkBnbWFpbC5jb20iLCJleHBpcmVzIjoxNjI4MDQwMTcxLjU0NTQ2OTN9.Tc2jgNklZvyAW1n_JP4L2HPuXewwR7YDznClfxq-wqY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://172.10.10.47:49163/student/:id",
+							"protocol": "http",
+							"host": [
+								"172",
+								"10",
+								"10",
+								"47"
+							],
+							"port": "49163",
+							"path": [
+								"student",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "610906372c3afbce3b2582d5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibHlvbkBnbWFpbC5jb20iLCJleHBpcmVzIjoxNjI3OTgzNTc0Ljc5MDA0NH0.zFB-KSFy59om_If10PtybppQ1JotgylYmS2C8q-HTYo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullname\": \"Abdulazeez Abdulazeez\",\r\n  \"email\": \"abdulazeez@y.edu.ng\",\r\n  \"course_of_study\": \"Water resources and environmental engineering\",\r\n  \"year\": 4,\r\n  \"gpa\": \"1115.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://172.10.10.47:49163/student/:id",
+							"protocol": "http",
+							"host": [
+								"172",
+								"10",
+								"10",
+								"47"
+							],
+							"port": "49163",
+							"path": [
+								"student",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "610906382c3afbce3b2582d6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibHlvbkBnbWFpbC5jb20iLCJleHBpcmVzIjoxNjI3OTgzNTc0Ljc5MDA0NH0.zFB-KSFy59om_If10PtybppQ1JotgylYmS2C8q-HTYo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://172.10.10.47:49163/student/:id",
+							"protocol": "http",
+							"host": [
+								"172",
+								"10",
+								"10",
+								"47"
+							],
+							"port": "49163",
+							"path": [
+								"student",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "610906382c3afbce3b2582d6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

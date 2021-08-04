@@ -7,14 +7,21 @@ services:
       - 8080:8080
     env_file:
       - .env
+    depends_on: 
+      - redis
+      - mongodb
 
   mongodb:
-    image: bitnami/mongodb:latest
+    image: mongodb:latest
     ports:
-      - 27017
+      - 27017:27017
     volumes:
-      - data:/bitnami/mongodb
+      - data:/mongodb
 
+  redis:
+    image: "redis:alpine"
+    ports:
+      - 6379:6379
 
 volumes:
   data:

@@ -36,13 +36,15 @@ async def release_redis(app: FastAPI):
 
 def create_start_app_handler(app: FastAPI) -> Callable:  # type: ignore
     async def start_app() -> None:
-        app.state.redis = await get_redis_pool()
+        # app.state.redis = await get_redis_pool()
+        pass
     return start_app
 
 
 def create_stop_app_handler(app: FastAPI) -> Callable:  # type: ignore
     @logger.catch
     async def stop_app() -> None:
-        await release_redis(app)
+        # await release_redis(app)
+        pass
 
     return stop_app
